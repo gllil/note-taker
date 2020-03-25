@@ -19,7 +19,7 @@ class Store {
             let parsedNotes;
 
             try {
-                parsedNotes = [].concat(JSON.stringify)
+                parsedNotes = [].concat(JSON.parse(notes))
                 
             } catch (error) {
                 parsedNotes = [];
