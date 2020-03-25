@@ -6,4 +6,5 @@ This is a homework assignment that was given to create api routes via express se
 
 # Images
 
-<img src="">
+<img src="https://github.com/gllil/note-taker/blob/master/develop/public/assets/images/index_page.PNG">
+<img src="https://github.com/gllil/note-taker/blob/master/develop/public/assets/images/Notes_page.PNG">
