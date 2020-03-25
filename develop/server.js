@@ -3,7 +3,7 @@ const path = require("path");
 const store = require("./db/Store")
 
 
-noteInfo = require("./db/db.json");
+const noteInfo = require("./db/db.json");
 
 
 const app = express();
@@ -28,7 +28,7 @@ app.get("/api/notes", (req, res) => {
 
 
 app.post("api/notes", (req, res) => {
-
+    noteInfo.addNotes(req.body)
 })
 
 app.delete("api/notes", (req, res) => {
