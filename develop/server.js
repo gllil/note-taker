@@ -3,7 +3,7 @@ const path = require("path");
 const store = require("./db/Store")
 
 
-const noteInfo = require("./db/db.json");
+let noteInfo = require("./db/db.json");
 
 
 const app = express();
@@ -15,24 +15,26 @@ app.use(express.json());
 
 
 app.get("/", function(req, res){
-    res.sendFile(path.join(__dirname, "/public/index.html"))
+    res.sendFile(path.join(__dirname, "/public/index.html"));
 })
 
 app.get("/notes", (req, res) => {
-    res.sendFile(path.join(__dirname, "/public/notes.html"))
+    res.sendFile(path.join(__dirname, "/public/notes.html"));
 })
 
 app.get("/api/notes", (req, res) => {
-    res.json(noteInfo)
+    res.json(noteInfo);
 })
 
 
 app.post("api/notes", (req, res) => {
-    noteInfo.addNotes(req.body)
+    store.addNotes(noteInfo.push(req.body));
+    res.json(noteInfo);
 })
 
-app.delete("api/notes", (req, res) => {
-
+app.delete("api/notes/:id", (req, res) => {
+    store.removeNotes(req.params.id);
+    res.json(noteInfo);
 })
 
 app.listen(PORT, function() {
