@@ -7,13 +7,13 @@ router.get("/api/notes", (req, res) => {
     .catch(err => res.status(500).json(err));
 });
 
-router.post("api/notes", (req, res) => {
+router.post("/api/notes", (req, res) => {
     store.createNote(req.body)
     .then((note) => res.json(note))
     .catch(err => res.status(500).json(err));
 });
 
-router.delete("api/notes/:id", (req, res) => {
+router.delete("/api/notes/:id", (req, res) => {
     store.deleteNote(req.params.id)
     .then(() => res.json({ ok: true }))
     .catch(err => res.status(500).json(err));
